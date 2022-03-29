@@ -1,0 +1,23 @@
+<label>Server Name</label>
+<input
+  type="text"
+  class="form-control"
+  (input)="onUpdateServerName($event)">
+<p>{{ serverName }}</p>
+<!-- this is a button that is using property binding-->
+<button class="btn btn-primary"
+[disabled]="!allowNewServer"
+(click)="onCreateServer()">Add Server</button>
+<hr>
+<!--<p>{{ serverCreationStatus }}</p>-->
+<!-- <p>{{allowNewServer}}</p> -->
+<!-- property Binding Example -->
+<p *ngIf="serverCreated; else noServer">Server was created, Server name is {{serverName}}</p>
+<ng-template #noServer>
+  <p>No Server was created!</p>
+</ng-template>
+<p [innerText]="allowNewServer"></p>
+
+<button class="btn btn-primary" (click)="displayDetails = !displayDetails">Display Details</button>
+<p *ngIf="displayDetails">This button will display the server details</p>
+

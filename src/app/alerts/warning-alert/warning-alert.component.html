@@ -1,0 +1,9 @@
+<!-- <p>Status: {{warningStatus}}</p> -->
+<button class="btn btn-primary" (click)="onToggleStatus()">Display Status</button>
+<p *ngIf="displayStatus">This button will display the server status number</p>
+<div *ngFor="let submissionStatus of submission; let i = index"
+    [ngStyle]="{backgroundColor: i >=4 ? 'blue' : 'transparent'}"
+    [ngClass]="{'text-color': i >=4}">
+    {{submissionStatus}}
+</div>
+
